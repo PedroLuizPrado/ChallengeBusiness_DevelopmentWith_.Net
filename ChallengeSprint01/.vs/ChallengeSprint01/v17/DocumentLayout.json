@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|c:\\users\\labsfiap\\desktop\\challengebusiness_developmentwith_.net\\challengesprint01\\challengesprint01\\challengesprint01.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|solutionrelative:challengesprint01\\challengesprint01.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|c:\\users\\labsfiap\\desktop\\challengebusiness_developmentwith_.net\\challengesprint01\\challengesprint01\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|solutionrelative:challengesprint01\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|c:\\users\\labsfiap\\desktop\\challengebusiness_developmentwith_.net\\challengesprint01\\challengesprint01\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|solutionrelative:challengesprint01\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|c:\\users\\labsfiap\\desktop\\challengebusiness_developmentwith_.net\\challengesprint01\\challengesprint01\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|solutionrelative:challengesprint01\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|c:\\users\\labsfiap\\desktop\\challengebusiness_developmentwith_.net\\challengesprint01\\challengesprint01\\dtos\\userregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|solutionrelative:challengesprint01\\dtos\\userregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|c:\\users\\labsfiap\\desktop\\challengebusiness_developmentwith_.net\\challengesprint01\\challengesprint01\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|solutionrelative:challengesprint01\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|c:\\users\\labsfiap\\desktop\\challengebusiness_developmentwith_.net\\challengesprint01\\challengesprint01\\dtos\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADD4A2B1-E3AD-4E6B-AFEF-CD8E57423CE3}|ChallengeSprint01\\ChallengeSprint01.csproj|solutionrelative:challengesprint01\\dtos\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\appsettings.json",
+              "RelativeDocumentMoniker": "ChallengeSprint01\\appsettings.json",
+              "ToolTip": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\appsettings.json",
+              "RelativeToolTip": "ChallengeSprint01\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAADPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-03T14:39:05.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "ChallengeSprint01\\Data\\DataContext.cs",
+              "ToolTip": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\Data\\DataContext.cs",
+              "RelativeToolTip": "ChallengeSprint01\\Data\\DataContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T14:32:55.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\Program.cs",
+              "RelativeDocumentMoniker": "ChallengeSprint01\\Program.cs",
+              "ToolTip": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\Program.cs",
+              "RelativeToolTip": "ChallengeSprint01\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T14:19:19.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRegisterDto.cs",
+              "DocumentMoniker": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\Dtos\\UserRegisterDto.cs",
+              "RelativeDocumentMoniker": "ChallengeSprint01\\Dtos\\UserRegisterDto.cs",
+              "ToolTip": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\Dtos\\UserRegisterDto.cs",
+              "RelativeToolTip": "ChallengeSprint01\\Dtos\\UserRegisterDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T14:17:13.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChallengeSprint01",
+              "DocumentMoniker": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\ChallengeSprint01.csproj",
+              "RelativeDocumentMoniker": "ChallengeSprint01\\ChallengeSprint01.csproj",
+              "ToolTip": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\ChallengeSprint01.csproj",
+              "RelativeToolTip": "ChallengeSprint01\\ChallengeSprint01.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-03T14:13:32.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserLoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\Dtos\\UserLoginDto.cs",
+              "RelativeDocumentMoniker": "ChallengeSprint01\\Dtos\\UserLoginDto.cs",
+              "ToolTip": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\Dtos\\UserLoginDto.cs",
+              "RelativeToolTip": "ChallengeSprint01\\Dtos\\UserLoginDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T14:15:01.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ChallengeSprint01\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\labsfiap\\Desktop\\ChallengeBusiness_DevelopmentWith_.Net\\ChallengeSprint01\\ChallengeSprint01\\Models\\User.cs",
+              "RelativeToolTip": "ChallengeSprint01\\Models\\User.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAwwCEAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T13:42:38.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
