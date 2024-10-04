@@ -1,4 +1,4 @@
-# Projeto - Redução de Sinistros Odontológicos com Visão Computacional
+# Projeto - Redução de Sinistros Odontológicos com Visão Computacional🦷
 
 ## Desenvolvedores:
 
