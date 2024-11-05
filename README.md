@@ -31,10 +31,30 @@ No projeto, a plataforma .NET será utilizada para desenvolver as seguintes func
   - **CPF**: Para salvar dados na conta.
   - **Primeiro Tratamento**: Para registrar a quantidade de tratamentos realizados.
   - **IsActive**: Para verificar se o usuário está ativo ou não.
-  - **Role** : para tratar o usuário como um usuário comum e não como um admin.
-  -  **Avatar**: Define uma imagem padrão para o user.
+  - **Role**: Para tratar o usuário como um usuário comum e não como um admin.
+  - **Avatar**: Define uma imagem padrão para o user.
 
 Essas informações serão armazenadas no sistema para garantir a personalização e segurança da experiência do usuário.
+
+## Sprint02
+
+Durante a Sprint02, foram adicionadas as seguintes implementações e funcionalidades:
+
+- **Views e Layouts**:
+  - Configuração de rotas padrão e rotas personalizadas para as páginas da aplicação.
+  - Implementação do layout principal, incluindo cabeçalho, rodapé e navegação personalizada com Bootstrap.
+  - Criação de views para as funcionalidades principais com validações correspondentes das viewmodels.
+  - Definição de ViewModels para transferir dados entre a camada de apresentação e a lógica de negócio.
+
+- **Layout e Design**:
+  - Arquivo `_Layout.cshtml` atualizado para incluir links e scripts necessários para o funcionamento do Bootstrap e Popper.js.
+  - Estruturação do layout com navegação e estilo responsivo para facilitar a usabilidade.
+
+- **Configuração e Estrutura**:
+  - Definição das configurações para a aplicação .NET no arquivo `Program.cs`, incluindo mapeamento de rotas e configuração de middlewares essenciais.
+  - Integração de Bootstrap e Popper.js para aprimorar a interface e funcionalidade da aplicação.
+
+Essas atualizações foram feitas para melhorar a navegação, a usabilidade e o layout da aplicação, atendendo aos requisitos da Sprint02.
 
 ## Tecnologias Utilizadas:
 
@@ -42,5 +62,6 @@ Essas informações serão armazenadas no sistema para garantir a personalizaç�
 - Visão Computacional
 - Mobile Development
 - Gamificação
+
 
 
