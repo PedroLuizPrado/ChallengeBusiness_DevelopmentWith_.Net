@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OdontoPrevSprint03</name>
+    </assembly>
+    <members>
+        <member name="M:OdontoPrevSprint03.Controllers.UserController.GetAllUsers">
+            <summary>
+            Obtém todos os usuários.
+            </summary>
+            <returns>Uma lista de usuários.</returns>
+        </member>
+        <member name="M:OdontoPrevSprint03.Controllers.UserController.GetUserById(System.Int32)">
+            <summary>
+            Obtém um usuário pelo ID.
+            </summary>
+            <param name="id">O ID do usuário.</param>
+            <returns>O usuário encontrado.</returns>
+        </member>
+        <member name="M:OdontoPrevSprint03.Controllers.UserController.AddUser(OdontoPrevSprint03.Models.User)">
+            <summary>
+            Adiciona um novo usuário.
+            </summary>
+            <param name="user">O usuário a ser adicionado.</param>
+            <returns>O usuário criado.</returns>
+        </member>
+        <member name="M:OdontoPrevSprint03.Controllers.UserController.UpdateUser(System.Int32,OdontoPrevSprint03.Models.User)">
+            <summary>
+            Atualiza um usuário existente.
+            </summary>
+            <param name="id">O ID do usuário a ser atualizado.</param>
+            <param name="user">O usuário com as informações atualizadas.</param>
+            <returns>NoContent se a atualização for bem-sucedida.</returns>
+        </member>
+        <member name="M:OdontoPrevSprint03.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+            Exclui um usuário pelo ID.
+            </summary>
+            <param name="id">O ID do usuário a ser excluído.</param>
+            <returns>NoContent se a exclusão for bem-sucedida.</returns>
+        </member>
+        <member name="T:OdontoPrevSprint03.Migrations.inicial">
+            <inheritdoc />
+        </member>
+        <member name="M:OdontoPrevSprint03.Migrations.inicial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OdontoPrevSprint03.Migrations.inicial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OdontoPrevSprint03.Migrations.inicial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:OdontoPrevSprint03.Models.User">
+            <summary>
+            Representa um usuário (paciente) no sistema.
+            </summary>
+        </member>
+        <member name="P:OdontoPrevSprint03.Models.User.Id">
+            <summary>
+            Identificador único do usuário.
+            </summary>
+        </member>
+        <member name="P:OdontoPrevSprint03.Models.User.Nome">
+            <summary>
+            Nome completo do usuário.
+            </summary>
+        </member>
+        <member name="P:OdontoPrevSprint03.Models.User.DataAniversario">
+            <summary>
+            Data de aniversário do usuário.
+            </summary>
+        </member>
+        <member name="P:OdontoPrevSprint03.Models.User.Email">
+            <summary>
+            Endereço de e-mail do usuário.
+            </summary>
+        </member>
+    </members>
+</doc>
