@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\OdontoPrevSprint03.props" />
-</Project>
