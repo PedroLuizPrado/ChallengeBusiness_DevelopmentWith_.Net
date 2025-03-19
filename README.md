@@ -1,46 +1,155 @@
-# 📌 Sprint03 - Atualização e Estrutura do Projeto
+# 📌 Sprint03 - Redução de Sinistros Odontológicos com Visão Computacional 🦷
 
-## 📚 Visão Geral
-A Sprint03 foi marcada pela evolução do projeto, consolidando sua arquitetura e garantindo maior robustez e organização para atender às necessidades da API. Optamos por uma arquitetura **monolítica**, pois é o modelo mais familiar para a equipe e, considerando o escopo do projeto, foi a escolha mais eficiente e adequada para garantir uma implementação ágil e bem estruturada.
+## 👥 Integrantes do Grupo
 
-## 💡 Motivos para Escolha da Arquitetura Monolítica
-1. **Familiaridade da Equipe**
-   - A equipe já possui experiência consolidada com o desenvolvimento monolítico, o que agiliza a implementação e reduz a curva de aprendizado.
-   
-2. **Adequação ao Escopo do Projeto**
-   - Como o projeto se trata exclusivamente de uma API, não há necessidade imediata de um modelo distribuído, como microservices. A abordagem monolítica permite um desenvolvimento mais direto e eficiente.
-   
-3. **Facilidade de Manutenção e Depuração**
-   - Em um ambiente monolítico, todos os componentes estão centralizados, tornando mais simples a manutenção, depuração e testes.
-   
-4. **Gerenciamento de Banco de Dados Simplificado**
-   - Em uma estrutura monolítica, há um único banco de dados centralizado, facilitando a modelagem, migração e administração dos dados.
-   
-## ⚙️ Atualizações Implementadas
-### **1⃣ Organização da Estrutura do Projeto**
-- Separamos o código por **camadas** para melhor modularização:
-  - `Domain`: Contém as entidades e regras de negócio fundamentais.
-  - `Infrastructure`: Gerencia a camada de acesso a dados, incluindo **repositórios e contexto do banco**.
-  - `Presentation`: Camada que expõe os endpoints da API e gerencia as requisições HTTP.
+- **Murillo Ferreira Ramos** - RM553315  
+- **Pedro Luiz Prado** - RM553874  
+- **William Kenzo Hayashi** - RM552659  
 
-### **2⃣ Implementação do Banco de Dados com Oracle**
-- Utilizamos o **Entity Framework Core** para gerenciar a persistência dos dados.
-- Criamos e aplicamos **migrações** para estruturar o banco corretamente.
-- Ajustamos os mapeamentos das entidades, garantindo consistência entre as classes e o banco de dados.
+## 📖 Visão Geral do Projeto
 
-### **3⃣ Documentação com Swagger**
-- Implementamos a documentação automática via **Swashbuckle.AspNetCore**, facilitando a visualização e testes dos endpoints.
-- Adicionamos **anotações XML** para documentar as entidades, métodos e parâmetros da API.
+O objetivo central do projeto é desenvolver uma API utilizando .NET para auxiliar na **redução de sinistros odontológicos** por meio da análise de dados e visão computacional. Essa API servirá como base para armazenar e gerenciar dados dos usuários, garantindo **segurança, eficiência e escalabilidade** na aplicação.
 
-### **4⃣ CRUD Completo para NomeUsuário**
-- Desenvolvemos operações completas de **Criação, Leitura, Atualização e Exclusão (CRUD)** para gerenciar usuários na API.
-- Ajustamos os DTOs para garantir uma melhor estruturação e evitar exposição direta das entidades do domínio.
+## 💡 Arquitetura Escolhida
 
-## 🚀 Conclusão e Próximos Passos
-A atualização da Sprint03 trouxe maior organização e estrutura para o projeto, garantindo uma API robusta e bem documentada. A escolha da arquitetura monolítica foi fundamental para manter a equipe produtiva e garantir a entrega dentro do prazo, com um modelo eficiente para o escopo definido.
+Optamos por uma **arquitetura monolítica** devido a:
 
-Os próximos passos incluem **otimizações na segurança, validação avançada de entrada de dados e testes automatizados**, preparando o projeto para futuras integrações e escalabilidade.
+1. **Familiaridade da Equipe**: A abordagem monolítica é mais compreendida pelos integrantes, agilizando o desenvolvimento.
+2. **Adequação ao Escopo do Projeto**: Sendo uma API específica para um propósito definido, a necessidade de microservices não se justifica.
+3. **Facilidade de Manutenção e Depuração**: A centralização da aplicação permite um controle mais eficiente de erros e atualizações.
+4. **Gerenciamento de Banco de Dados Simplificado**: Um único banco centralizado facilita o desenvolvimento e as migrações.
 
-📌 **Status da Sprint03**: ✅ Concluído com sucesso!
+## ⚙️ Funcionalidades Implementadas
 
-📢 **Mantenha-se atualizado!** Continue acompanhando nosso progresso para mais melhorias e refinamentos na API. 💡
+- **Estrutura em Camadas**: 
+  - `Domain`: Define as entidades do sistema.
+  - `Infrastructure`: Gerencia repositórios e a conexão com o banco de dados.
+  - `Presentation`: Contém os controladores e endpoints da API.
+
+- **Banco de Dados**: 
+  - Implementação do **Entity Framework Core**.
+  - Uso do banco **Oracle** para armazenar os dados dos usuários.
+
+- **Documentação com Swagger**: 
+  - Geração automática de documentação para facilitar a utilização e testes dos endpoints.
+
+- **CRUD Completo para Usuários**:
+  - **Criação** de novos usuários.
+  - **Consulta** de usuários cadastrados.
+  - **Atualização** de informações de usuários.
+  - **Remoção** de usuários do banco de dados.
+
+## 🚀 Como Executar a API
+
+### 📌 Pré-requisitos
+- .NET 6 ou superior instalado.
+- Banco de Dados Oracle configurado.
+- Ferramenta Postman ou Swagger para testar os endpoints.
+
+### 🔧 Configuração do Banco de Dados
+1. Atualize a string de conexão no arquivo `appsettings.json`.
+2. Execute as **migrações** para criar o banco:
+   ```sh
+   dotnet ef migrations add InicialNovaEstrutura
+   dotnet ef database update
+   ```
+3. Inicie a API:
+   ```sh
+   dotnet run
+   ```
+
+## 🔄 Endpoints da API
+
+### 📌 Usuários
+
+1️⃣ **Criar um novo usuário**  
+📌 **POST** `/api/nomeusuarios`  
+🔹 **Body (JSON):**
+```json
+{
+  "nomeUsuario": "João Silva",
+  "email": "joao@email.com",
+  "nascData": "1990-05-15",
+  "phoneNumber": "(11) 99999-9999"
+}
+```
+📌 **Resposta:**
+```json
+{
+  "id": 1,
+  "nomeUsuario": "João Silva",
+  "email": "joao@email.com",
+  "nascData": "1990-05-15T00:00:00",
+  "phoneNumber": "(11) 99999-9999"
+}
+```
+
+2️⃣ **Buscar todos os usuários**  
+📌 **GET** `/api/nomeusuarios`
+
+📌 **Resposta:**
+```json
+[
+  {
+    "id": 1,
+    "nomeUsuario": "João Silva",
+    "email": "joao@email.com",
+    "nascData": "1990-05-15T00:00:00",
+    "phoneNumber": "(11) 99999-9999"
+  }
+]
+```
+
+3️⃣ **Buscar um usuário por ID**  
+📌 **GET** `/api/nomeusuarios/{id}`  
+📌 **Resposta:**
+```json
+{
+  "id": 1,
+  "nomeUsuario": "João Silva",
+  "email": "joao@email.com",
+  "nascData": "1990-05-15T00:00:00",
+  "phoneNumber": "(11) 99999-9999"
+}
+```
+
+4️⃣ **Atualizar um usuário**  
+📌 **PUT** `/api/nomeusuarios/{id}`  
+🔹 **Body (JSON):**
+```json
+{
+  "nomeUsuario": "João Silva Modificado",
+  "email": "joao.novo@email.com",
+  "nascData": "1990-05-15",
+  "phoneNumber": "(11) 98888-8888"
+}
+```
+📌 **Resposta:**
+```json
+{
+  "id": 1,
+  "nomeUsuario": "João Silva Modificado",
+  "email": "joao.novo@email.com",
+  "nascData": "1990-05-15T00:00:00",
+  "phoneNumber": "(11) 98888-8888"
+}
+```
+
+5️⃣ **Excluir um usuário**  
+📌 **DELETE** `/api/nomeusuarios/{id}`  
+📌 **Resposta:**
+```json
+{
+  "message": "Usuário removido com sucesso."
+}
+```
+
+## 📄 Entrega do Projeto
+
+📌 O repositório contém:
+- Código-fonte completo da API.
+- Explicação da arquitetura utilizada.
+- Instruções para rodar a API.
+- Testes e validações.
+
+
