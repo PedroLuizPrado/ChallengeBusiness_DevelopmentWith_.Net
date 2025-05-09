@@ -17,6 +17,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 /// Registra o repositório NomeUsuarioRepository para injeção de dependência.
 /// </summary>
 builder.Services.AddScoped<NomeUsuarioRepository>();
+builder.Services.AddHttpClient<Sprint03.Services.CdcApiService>();
 
 /// <summary>
 /// Adiciona suporte a Controllers na API.
@@ -70,3 +71,4 @@ app.MapControllers();
 /// Inicia a aplicação.
 /// </summary>
 app.Run();
+
