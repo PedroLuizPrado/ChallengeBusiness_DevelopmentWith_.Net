@@ -24,5 +24,7 @@
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
-
+	<ItemGroup>
+		<PackageReference Update="Microsoft.EntityFrameworkCore.Relational" Version="8.0.14" />
+	</ItemGroup>
 </Project>

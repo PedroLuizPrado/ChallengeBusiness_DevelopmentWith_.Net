@@ -9,9 +9,9 @@ namespace Sprint03.Presentation.Controllers
     [Route("api/[controller]")]
     public class CdcController : ControllerBase
     {
-        private readonly CdcApiService _cdcApiService;
+        private readonly ICdcApiService _cdcApiService;
 
-        public CdcController(CdcApiService cdcApiService)
+        public CdcController(ICdcApiService cdcApiService)
         {
             _cdcApiService = cdcApiService;
         }
@@ -22,7 +22,7 @@ namespace Sprint03.Presentation.Controllers
         public async Task<ActionResult<List<CdcDentalDto>>> Get()
         {
             var dados = await _cdcApiService.ObterDadosDentaisAsync();
-            return Ok(dados.Take(10));
+            return Ok(dados.Take(10).ToList()); // <- Atualização aqui
         }
 
         [HttpGet("comparar")]

@@ -132,3 +132,5 @@ C:\Users\labsfiap\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03.Tests\
 C:\Users\labsfiap\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03.Tests\obj\Debug\net8.0\Sprint03.Tests.pdb
 C:\Users\labsfiap\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03.Tests\obj\Debug\net8.0\Sprint03.Tests.genruntimeconfig.cache
 C:\Users\labsfiap\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03.Tests\obj\Debug\net8.0\ref\Sprint03.Tests.dll
+C:\Users\labsfiap\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03.Tests\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\labsfiap\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03.Tests\bin\Debug\net8.0\Moq.dll

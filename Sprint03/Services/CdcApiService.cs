@@ -4,7 +4,7 @@ using Sprint03.Dtos;
 
 namespace Sprint03.Services
 {
-    public class CdcApiService
+    public class CdcApiService : ICdcApiService
     {
         private readonly HttpClient _httpClient;
 

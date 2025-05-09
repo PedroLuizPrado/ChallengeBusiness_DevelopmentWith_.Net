@@ -15,7 +15,7 @@ namespace Sprint03.Tests.Controllers
         public async Task Get_DeveRetornarDadosComSucesso()
         {
             // Arrange
-            var mockService = new Mock<CdcApiService>(new HttpClient());
+            var mockService = new Mock<ICdcApiService>();
             var dadosFalsos = new List<CdcDentalDto>
             {
                 new CdcDentalDto { Year = "2020", Indicator = "Teste 1", DataValue = "45.0" },

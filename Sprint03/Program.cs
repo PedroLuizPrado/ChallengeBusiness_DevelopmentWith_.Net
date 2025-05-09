@@ -4,6 +4,7 @@ using Sprint03.Infrastructure.Repositories;
 using Microsoft.OpenApi.Models;
 using Oracle.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Annotations;
+using Sprint03.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 /// Registra o repositório NomeUsuarioRepository para injeção de dependência.
 /// </summary>
 builder.Services.AddScoped<NomeUsuarioRepository>();
-builder.Services.AddHttpClient<Sprint03.Services.CdcApiService>();
+builder.Services.AddHttpClient<ICdcApiService, CdcApiService>();
+
 
 /// <summary>
 /// Adiciona suporte a Controllers na API.
@@ -51,6 +53,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<Sprint03.Middleware.ExceptionMiddleware>();
 
 /// <summary>
 /// Aplica redirecionamento HTTPS para segurança.
