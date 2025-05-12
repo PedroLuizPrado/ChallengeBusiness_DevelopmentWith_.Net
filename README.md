@@ -2,9 +2,9 @@
 
 ## 👥 Integrantes do Grupo
 
-- **Murillo Ferreira Ramos** - RM553315  
-- **Pedro Luiz Prado** - RM553874  
-- **William Kenzo Hayashi** - RM552659  
+* **Murillo Ferreira Ramos** - RM553315
+* **Pedro Luiz Prado** - RM553874
+* **William Kenzo Hayashi** - RM552659
 
 ## 📖 Visão Geral do Projeto
 
@@ -21,135 +21,123 @@ Optamos por uma **arquitetura monolítica** devido a:
 
 ## ⚙️ Funcionalidades Implementadas
 
-- **Estrutura em Camadas**: 
-  - `Domain`: Define as entidades do sistema.
-  - `Infrastructure`: Gerencia repositórios e a conexão com o banco de dados.
-  - `Presentation`: Contém os controladores e endpoints da API.
+* **Estrutura em Camadas**:
 
-- **Banco de Dados**: 
-  - Implementação do **Entity Framework Core**.
-  - Uso do banco **Oracle** para armazenar os dados dos usuários.
+  * `Domain`: Define as entidades do sistema.
+  * `Infrastructure`: Gerencia repositórios e a conexão com o banco de dados.
+  * `Presentation`: Contém os controladores e endpoints da API.
 
-- **Documentação com Swagger**: 
-  - Geração automática de documentação para facilitar a utilização e testes dos endpoints.
+* **Banco de Dados**:
 
-- **CRUD Completo para Usuários**:
-  - **Criação** de novos usuários.
-  - **Consulta** de usuários cadastrados.
-  - **Atualização** de informações de usuários.
-  - **Remoção** de usuários do banco de dados.
+  * Implementação do **Entity Framework Core**.
+  * Uso do banco **Oracle** para armazenar os dados dos usuários.
+
+* **Integração com API Externa (CDC)**:
+
+  * Consumo da [CDC Open Data API](https://data.cdc.gov)
+  * Filtros por ano e categoria etária
+  * Recomendador de tempo de visita ao dentista por idade
+
+* **Middleware de Exceções**:
+
+  * Captura erros da aplicação e retorna resposta JSON amigável
+  * Log com `ILogger`
+
+* **Testes Unitários com xUnit + Moq**:
+
+  * Testes para `CdcApiService` e `CdcController`
+
+* **Boas Práticas**:
+
+  * Princípios SOLID
+  * Clean Code
+  * Inversão de dependência com interfaces
 
 ## 🚀 Como Executar a API
 
 ### 📌 Pré-requisitos
-- .NET 6 ou superior instalado.
-- Banco de Dados Oracle configurado.
-- Ferramenta Postman ou Swagger para testar os endpoints.
 
-### 🔧 Configuração do Banco de Dados
-1. Atualize a string de conexão no arquivo `appsettings.json`.
-2. Execute as **migrações** para criar o banco:
-   ```sh
-   dotnet ef migrations add InicialNovaEstrutura
-   dotnet ef database update
-   ```
-3. Inicie a API:
-   ```sh
-   dotnet run
-   ```
+* .NET 8.0 instalado
+* Banco de Dados Oracle configurado
+* Visual Studio 2022 ou superior
+
+### 🔧 Execução
+
+```bash
+# Aplicar as migrações
+> dotnet ef migrations add InicialNovaEstrutura
+> dotnet ef database update
+
+# Rodar a API
+> dotnet run
+```
+
+### 🔍 Documentação Swagger
+
+> Acesse [https://localhost:7005/swagger](https://localhost:7005/swagger)
 
 ## 🔄 Endpoints da API
 
-### 📌 Usuários
+### 📌 Usuários CRUD
 
-1️⃣ **Criar um novo usuário**  
-📌 **POST** `/api/nomeusuarios`  
-🔹 **Body (JSON):**
-```json
-{
-  "nomeUsuario": "João Silva",
-  "email": "joao@email.com",
-  "nascData": "1990-05-15",
-  "phoneNumber": "(11) 99999-9999"
-}
-```
-📌 **Resposta:**
-```json
-{
-  "id": 1,
-  "nomeUsuario": "João Silva",
-  "email": "joao@email.com",
-  "nascData": "1990-05-15T00:00:00",
-  "phoneNumber": "(11) 99999-9999"
-}
-```
+* POST `/api/nomeusuarios`
+* GET `/api/nomeusuarios`
+* GET `/api/nomeusuarios/{id}`
+* PUT `/api/nomeusuarios/{id}`
+* DELETE `/api/nomeusuarios/{id}`
 
-2️⃣ **Buscar todos os usuários**  
-📌 **GET** `/api/nomeusuarios`
+### 🔍 CDC - Integração externa
 
-📌 **Resposta:**
-```json
-[
-  {
-    "id": 1,
-    "nomeUsuario": "João Silva",
-    "email": "joao@email.com",
-    "nascData": "1990-05-15T00:00:00",
-    "phoneNumber": "(11) 99999-9999"
-  }
-]
+* GET `/api/cdc/dados-dentais`
+* GET `/api/cdc/comparar?year=2020&category=Adult`
+* GET `/api/cdc/alertas`
+* GET `/api/cdc/recomendacao-dentista?idade=35`
+
+## 🔮 Testes Automatizados
+
+Para rodar os testes:
+
+```bash
+dotnet test
 ```
 
-3️⃣ **Buscar um usuário por ID**  
-📌 **GET** `/api/nomeusuarios/{id}`  
-📌 **Resposta:**
-```json
-{
-  "id": 1,
-  "nomeUsuario": "João Silva",
-  "email": "joao@email.com",
-  "nascData": "1990-05-15T00:00:00",
-  "phoneNumber": "(11) 99999-9999"
-}
-```
+* Os testes cobrem consumo da API externa e lógicas dos controladores.
+* Moq foi usado para mockar dependências como `ICdcApiService`.
 
-4️⃣ **Atualizar um usuário**  
-📌 **PUT** `/api/nomeusuarios/{id}`  
-🔹 **Body (JSON):**
-```json
-{
-  "nomeUsuario": "João Silva Modificado",
-  "email": "joao.novo@email.com",
-  "nascData": "1990-05-15",
-  "phoneNumber": "(11) 98888-8888"
-}
-```
-📌 **Resposta:**
-```json
-{
-  "id": 1,
-  "nomeUsuario": "João Silva Modificado",
-  "email": "joao.novo@email.com",
-  "nascData": "1990-05-15T00:00:00",
-  "phoneNumber": "(11) 98888-8888"
-}
-```
+## 📅 Regras de Recomendacao
 
-5️⃣ **Excluir um usuário**  
-📌 **DELETE** `/api/nomeusuarios/{id}`  
-📌 **Resposta:**
+| Faixa Etária | Frequência Recomendada |
+| ------------ | ---------------------- |
+| 0 - 5 anos   | A cada 6 meses         |
+| 6 - 17 anos  | A cada 12 meses        |
+| 18 - 59 anos | A cada 12 meses        |
+| 60+ anos     | A cada 6 meses         |
+
+## 📊 Exemplo de Resposta da API Externa (CDC)
+
 ```json
 {
-  "message": "Usuário removido com sucesso."
+  "year": "2020",
+  "locationabbr": "US",
+  "category": "Adult",
+  "indicator": "Adults 65+ who have lost teeth",
+  "response": "Yes",
+  "data_value": "45.0"
 }
 ```
 
 ## 📄 Entrega do Projeto
 
-📌 O repositório contém:
-- Código-fonte completo da API.
-- Explicação da arquitetura utilizada.
-- Instruções para rodar a API.
-- Testes e validações.
+O *repositório inclui:*
+
+* *Código-fonte completo*
+* *Testes automatizados*
+* *Integração externa (CDC API)*
+* *Middleware de tratamento*
+* *Documentação Swagger e README*
+
+---
+
+🎓 **FIAP - 2TDSPC** | Projeto de Desenvolvimento Web com .NET
 
 
