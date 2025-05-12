@@ -34,8 +34,27 @@ Optamos por uma **arquitetura monolítica** devido a:
 
 * **Integração com API Externa (CDC)**:
 
+  * A API pública utilizada é a **CDC Open Data API**, especificamente o dataset sobre **saúde bucal em adultos nos Estados Unidos**. Essa base de dados contém informações coletadas por meio do sistema **BRFSS (Behavioral Risk Factor Surveillance System)** e é mantida pelos **Centers for Disease Control and Prevention (CDC)**.
+
+  📊 **O que essa API fornece:**
+
+  * Ano da coleta (`year`)
+  * Faixa etária (`category`)
+  * Indicador de saúde bucal (`indicator`)
+  * Valor percentual (`data_value`)
+  * Fonte da amostragem (`samplesize`)
+  * Quebra por categorias como raça, sexo e região
+
+  📅 **Período dos Dados:**
+
+  * **Ano inicial:** 2016
+
+  * **Ano mais recente:** 2020
+
   * Consumo da [CDC Open Data API](https://data.cdc.gov)
+
   * Filtros por ano e categoria etária
+
   * Recomendador de tempo de visita ao dentista por idade
 
 * **Middleware de Exceções**:
@@ -128,16 +147,14 @@ dotnet test
 
 ## 📄 Entrega do Projeto
 
-O *repositório inclui:*
+O repositório inclui:
 
-* *Código-fonte completo*
-* *Testes automatizados*
-* *Integração externa (CDC API)*
-* *Middleware de tratamento*
-* *Documentação Swagger e README*
+* Código-fonte completo
+* Testes automatizados
+* Integração externa (CDC API)
+* Middleware de tratamento
+* Documentação Swagger e README
 
 ---
 
 🎓 **FIAP - 2TDSPC** | Projeto de Desenvolvimento Web com .NET
-
-
