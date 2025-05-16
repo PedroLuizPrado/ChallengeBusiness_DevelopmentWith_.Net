@@ -1,4 +1,4 @@
-# 📌 Sprint03 - Redução de Sinistros Odontológicos com Visão Computacional 🦷
+# 📌 Sprint03 + Sprint04 - API de Saúde Bucal com Visão Computacional 🦷
 
 ## 👥 Integrantes do Grupo
 
@@ -6,155 +6,134 @@
 * **Pedro Luiz Prado** - RM553874
 * **William Kenzo Hayashi** - RM552659
 
+## 🔄 Atualização Importante
+
+Este projeto foi **atualizado na Sprint04** para atender aos novos requisitos propostos, incluindo:
+
+* Middleware para tratamento global de exceções.
+* Middleware de idempotência para evitar repetição de requisições.
+* Rate Limiting com AspNetCoreRateLimit.
+* Testes automatizados com xUnit e Moq.
+
 ## 📖 Visão Geral do Projeto
 
-O objetivo central do projeto é desenvolver uma API utilizando .NET para auxiliar na **redução de sinistros odontológicos** por meio da análise de dados e visão computacional. Essa API servirá como base para armazenar e gerenciar dados dos usuários, garantindo **segurança, eficiência e escalabilidade** na aplicação.
+O objetivo central do projeto é desenvolver uma API em .NET para **redução de sinistros odontológicos** por meio de análise de dados e visão computacional. Além disso, foi integrada uma API externa da CDC (Centers for Disease Control and Prevention) para acesso a dados de saúde bucal de adultos nos EUA.
 
 ## 💡 Arquitetura Escolhida
 
-Optamos por uma **arquitetura monolítica** devido a:
+* Arquitetura **monolítica** com divisão em camadas:
 
-1. **Familiaridade da Equipe**: A abordagem monolítica é mais compreendida pelos integrantes, agilizando o desenvolvimento.
-2. **Adequação ao Escopo do Projeto**: Sendo uma API específica para um propósito definido, a necessidade de microservices não se justifica.
-3. **Facilidade de Manutenção e Depuração**: A centralização da aplicação permite um controle mais eficiente de erros e atualizações.
-4. **Gerenciamento de Banco de Dados Simplificado**: Um único banco centralizado facilita o desenvolvimento e as migrações.
+  * `Domain`: Entidades de negócio.
+  * `Infrastructure`: Conexão com banco Oracle e repositórios.
+  * `Presentation`: Controllers da API.
+  * `Middleware`: Tratamento de erros e idempotência.
 
-## ⚙️ Funcionalidades Implementadas
+## 📊 CDC Open Data API
 
-* **Estrutura em Camadas**:
+A API pública integrada é da **CDC Open Data**:
 
-  * `Domain`: Define as entidades do sistema.
-  * `Infrastructure`: Gerencia repositórios e a conexão com o banco de dados.
-  * `Presentation`: Contém os controladores e endpoints da API.
+* Dataset: Saúde bucal de adultos nos Estados Unidos.
+* Sistema de origem: BRFSS (Behavioral Risk Factor Surveillance System).
+* Período dos dados: **2016 até 2020**.
 
-* **Banco de Dados**:
+### Informacoes fornecidas:
 
-  * Implementação do **Entity Framework Core**.
-  * Uso do banco **Oracle** para armazenar os dados dos usuários.
+* Ano da coleta (`year`)
+* Faixa etária (`category`)
+* Indicador de saúde bucal (`indicator`)
+* Valor percentual (`data_value`)
+* Tamanho da amostra (`samplesize`)
+* Quebra por: Raça, sexo, região
 
-* **Integração com API Externa (CDC)**:
+## ✅ Funcionalidades Implementadas
 
-  * A API pública utilizada é a **CDC Open Data API**, especificamente o dataset sobre **saúde bucal em adultos nos Estados Unidos**. Essa base de dados contém informações coletadas por meio do sistema **BRFSS (Behavioral Risk Factor Surveillance System)** e é mantida pelos **Centers for Disease Control and Prevention (CDC)**.
+### 🧑 CRUD de Usuários:
 
-  📊 **O que essa API fornece:**
+* Criação, leitura, atualização e exclusão com Oracle + EF Core.
 
-  * Ano da coleta (`year`)
-  * Faixa etária (`category`)
-  * Indicador de saúde bucal (`indicator`)
-  * Valor percentual (`data_value`)
-  * Fonte da amostragem (`samplesize`)
-  * Quebra por categorias como raça, sexo e região
+### 🔍 Integração com CDC API:
 
-  📅 **Período dos Dados:**
+* Endpoint para listar dados dentários.
+* Filtros por ano e faixa etária.
+* Alertas para valores altos.
+* Recomendador de frequência ao dentista baseado na idade.
 
-  * **Ano inicial:** 2016
+### 🛡️ Middleware:
 
-  * **Ano mais recente:** 2020
+* `ExceptionMiddleware`: Trata erros inesperados e retorna JSON.
+* `IdempotencyMiddleware`: Garante que requisições POST repetidas não sejam processadas mais de uma vez.
 
-  * Consumo da [CDC Open Data API](https://data.cdc.gov)
+### 🚦 Rate Limiting:
 
-  * Filtros por ano e categoria etária
+* Limita a 5 requisições por minuto por IP.
+* Implementado com `AspNetCoreRateLimit`.
 
-  * Recomendador de tempo de visita ao dentista por idade
+### 🧪 Testes Automatizados:
 
-* **Middleware de Exceções**:
-
-  * Captura erros da aplicação e retorna resposta JSON amigável
-  * Log com `ILogger`
-
-* **Testes Unitários com xUnit + Moq**:
-
-  * Testes para `CdcApiService` e `CdcController`
-
-* **Boas Práticas**:
-
-  * Princípios SOLID
-  * Clean Code
-  * Inversão de dependência com interfaces
+* Testes unitários com xUnit e Moq para Controller e Service.
 
 ## 🚀 Como Executar a API
 
-### 📌 Pré-requisitos
+### Requisitos:
 
-* .NET 8.0 instalado
-* Banco de Dados Oracle configurado
-* Visual Studio 2022 ou superior
+* .NET 8
+* Banco de dados Oracle
+* Visual Studio ou VS Code
 
-### 🔧 Execução
+### Banco de Dados:
 
-```bash
-# Aplicar as migrações
-> dotnet ef migrations add InicialNovaEstrutura
-> dotnet ef database update
-
-# Rodar a API
-> dotnet run
-```
-
-### 🔍 Documentação Swagger
-
-> Acesse [https://localhost:7005/swagger](https://localhost:7005/swagger)
-
-## 🔄 Endpoints da API
-
-### 📌 Usuários CRUD
-
-* POST `/api/nomeusuarios`
-* GET `/api/nomeusuarios`
-* GET `/api/nomeusuarios/{id}`
-* PUT `/api/nomeusuarios/{id}`
-* DELETE `/api/nomeusuarios/{id}`
-
-### 🔍 CDC - Integração externa
-
-* GET `/api/cdc/dados-dentais`
-* GET `/api/cdc/comparar?year=2020&category=Adult`
-* GET `/api/cdc/alertas`
-* GET `/api/cdc/recomendacao-dentista?idade=35`
-
-## 🔮 Testes Automatizados
-
-Para rodar os testes:
-
-```bash
-dotnet test
-```
-
-* Os testes cobrem consumo da API externa e lógicas dos controladores.
-* Moq foi usado para mockar dependências como `ICdcApiService`.
-
-## 📅 Regras de Recomendacao
-
-| Faixa Etária | Frequência Recomendada |
-| ------------ | ---------------------- |
-| 0 - 5 anos   | A cada 6 meses         |
-| 6 - 17 anos  | A cada 12 meses        |
-| 18 - 59 anos | A cada 12 meses        |
-| 60+ anos     | A cada 6 meses         |
-
-## 📊 Exemplo de Resposta da API Externa (CDC)
+Configure o `appsettings.json`:
 
 ```json
-{
-  "year": "2020",
-  "locationabbr": "US",
-  "category": "Adult",
-  "indicator": "Adults 65+ who have lost teeth",
-  "response": "Yes",
-  "data_value": "45.0"
+"ConnectionStrings": {
+  "OracleConnection": "Data Source=oracle.fiap.com.br:1521/orcl; User ID=SEU_ID; Password=SUA_SENHA;"
 }
 ```
 
+Execute:
+
+```bash
+dotnet ef migrations add InicialNovaEstrutura
+dotnet ef database update
+dotnet run
+```
+
+## 🔄 Endpoints Importantes
+
+### CDC
+
+* `GET /api/cdc/dados-dentais`: Lista dados gerais
+* `GET /api/cdc/comparar?year=2020&category=Adult`: Filtro
+* `GET /api/cdc/alertas`: Alerta de valor alto
+* `GET /api/cdc/recomendacao-dentista?idade=35`: Sugestão de frequência ao dentista
+
+### NomeUsuario
+
+* `POST /api/nomeusuarios`
+* `GET /api/nomeusuarios`
+* `GET /api/nomeusuarios/{id}`
+* `PUT /api/nomeusuarios/{id}`
+* `DELETE /api/nomeusuarios/{id}`
+
+## 🧠 Boas Práticas Aplicadas
+
+* Validação com DataAnnotations
+* Padrão Repository
+* Tratamento global de erros
+* Idempotência
+* Rate Limiting
+* Documentação com Swagger
+* Testes automatizados
+
 ## 📄 Entrega do Projeto
 
-O repositório inclui:
-
-* Código-fonte completo
-* Testes automatizados
-* Integração externa (CDC API)
-* Middleware de tratamento
-* Documentação Swagger e README
+* Estrutura em camadas com organização limpa
+* Swagger funcional
+* Banco Oracle ativo
+* Testes passando
+* Middleware aplicado
+* Projeto pronto para produção
 
 ---
 
-🎓 **FIAP - 2TDSPC** | Projeto de Desenvolvimento Web com .NET
+Projeto atualizado com sucesso na Sprint04 com foco em robustez, segurança e manutenção da API! ✨
