@@ -243,3 +243,5 @@ C:\Users\labsfiap\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03\obj\De
 C:\Users\labsfiap\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03\obj\Debug\net8.0\Sprint03.pdb
 C:\Users\labsfiap\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03\obj\Debug\net8.0\Sprint03.genruntimeconfig.cache
 C:\Users\labsfiap\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03\obj\Debug\net8.0\ref\Sprint03.dll
+C:\Users\USER\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03\bin\Debug\net8.0\AspNetCoreRateLimit.dll
+C:\Users\USER\Desktop\ChallengeBusiness_DevelopmentWith_.Net\Sprint03\bin\Debug\net8.0\Newtonsoft.Json.dll

@@ -5,30 +5,26 @@ using Microsoft.OpenApi.Models;
 using Oracle.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Annotations;
 using Sprint03.Services;
+using AspNetCoreRateLimit;
 
 var builder = WebApplication.CreateBuilder(args);
 
-/// <summary>
-/// Configuração do banco de dados Oracle.
-/// </summary>
+// Configuração de Rate Limiting
+builder.Services.AddMemoryCache();
+builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+builder.Services.AddInMemoryRateLimiting();
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+
+// Configuração do banco de dados Oracle.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection")));
 
-/// <summary>
-/// Registra o repositório NomeUsuarioRepository para injeção de dependência.
-/// </summary>
+// Repositórios e serviços
 builder.Services.AddScoped<NomeUsuarioRepository>();
 builder.Services.AddHttpClient<ICdcApiService, CdcApiService>();
 
-
-/// <summary>
-/// Adiciona suporte a Controllers na API.
-/// </summary>
+// Controllers e Swagger
 builder.Services.AddControllers();
-
-/// <summary>
-/// Configuração do Swagger/OpenAPI para documentação da API.
-/// </summary>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -39,40 +35,23 @@ builder.Services.AddSwaggerGen(options =>
         Description = "API para gerenciamento de usuários."
     });
 
-    // Habilita suporte para anotações no Swagger
     options.EnableAnnotations();
 });
 
 var app = builder.Build();
 
-/// <summary>
-/// Se o ambiente for de desenvolvimento, ativa o Swagger para documentação da API.
-/// </summary>
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Middleware de exceções e Rate Limiting
 app.UseMiddleware<Sprint03.Middleware.ExceptionMiddleware>();
+app.UseIpRateLimiting(); // << Adicionado aqui
 
-/// <summary>
-/// Aplica redirecionamento HTTPS para segurança.
-/// </summary>
 app.UseHttpsRedirection();
-
-/// <summary>
-/// Habilita autorização para proteger os endpoints, se necessário.
-/// </summary>
+app.UseMiddleware<Sprint03.Middleware.IdempotencyMiddleware>();
 app.UseAuthorization();
-
-/// <summary>
-/// Mapeia as rotas dos controllers para a API.
-/// </summary>
 app.MapControllers();
-
-/// <summary>
-/// Inicia a aplicação.
-/// </summary>
 app.Run();
-
